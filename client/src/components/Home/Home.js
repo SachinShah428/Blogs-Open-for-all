@@ -3,6 +3,7 @@ import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
 import { getPosts } from '../../actions/posts';
+import { getUsers } from '../../actions/users';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 
@@ -12,6 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getPosts());
+    dispatch ( getUsers() ) ;
   }, [dispatch]);
 
   return (

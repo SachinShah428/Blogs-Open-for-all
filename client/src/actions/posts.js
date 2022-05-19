@@ -50,6 +50,7 @@ export const likePost = (id ) => async (dispatch) => {
 export const deletePost = (id) => async (dispatch) => {
   try {
     await await api.deletePost(id);
+    console.log ( "mkb madharchod " ) ;
 
     dispatch({ type: DELETE, payload: id });
   } catch (error) {

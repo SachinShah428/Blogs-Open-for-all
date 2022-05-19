@@ -10,7 +10,7 @@ export const signin = (formData , navigate ) => async (dispatch) => {
     navigate('/');
 
   } catch (error) {
-   alert ( "AUTHENTICATION EROR" ) ;
+   alert ( "INVALID CREDENTIALS" ) ;
     console.log(error.message);
   }
 };
@@ -22,7 +22,7 @@ export const signup = (formData , navigate ) => async (dispatch) => {
     navigate('/');
 
   } catch (error) {
-   alert ( "AUTHENTICATION EROR" ) ;
+   alert ( "YOU ALREADY HAVE AN ACCOUNT OR YOUR PASSWORDS DOESNOT MATCH" ) ;
     console.log(error.message);
   }
 };

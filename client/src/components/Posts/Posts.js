@@ -3,23 +3,26 @@ import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import Post from './Post/Post';
+import Icard from './Icard' ;
 import useStyles from './styles';
 
 const Posts = ({ setCurrentId }) => {
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts );
+  const users = useSelector((state) => state.users );
   const classes = useStyles();
+  console.log ( posts ) ;
 
-  return (
-    !posts.length ?<CircularProgress /> : (
-      <Grid className={classes.container} container alignItems="stretch" spacing={3}>
-        {posts.map((post) => (
-          <Grid key={post._id} item xs={12} sm={6} md={6}>
-            <Post post={post} setCurrentId={setCurrentId} />
-          </Grid>
-        )).reverse()}
-      </Grid>
-    )
-  );
-};
+ return (
+  !users.length ? <CircularProgress /> : (
+    <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+      {users.map((creator) => (
+        <Grid key={creator._id} item xs={12} sm={6} md={6}>
+          <Icard creator={creator} />
+        </Grid>
+      )).reverse()}
+    </Grid>
+  )
+ );
+ };
 
 export default Posts;

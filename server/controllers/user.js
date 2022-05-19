@@ -14,7 +14,7 @@ export const signin = async (req, res) => {
 
     const oldUser = await UserModal.findOne({ email });
 
-    if (!oldUser) { console.log ( "khatam" ) ;
+    if (!oldUser) { console.log ( "errorsignin" ) ;
       return res.status(404).json({ message: "User doesn't exist" });
     }
 
@@ -29,7 +29,7 @@ export const signin = async (req, res) => {
   } catch (err) {
 
     res.status(500).json({ message: "Something went wrong" });
-    console.log ( " mcg " ) ;
+    console.log ( "errorsignin" ) ;
 
   }
 };
@@ -50,7 +50,7 @@ export const signup = async (req, res) => {
 
     }
     if ( password !== confirmPassword ) {
-        console.log ( "here" ) ;
+        console.log ( "errorsignup" ) ;
       return res.status(400).json({ message: "Passwords not matching" });
 
     }
@@ -68,5 +68,18 @@ export const signup = async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
     console.log(error);
 
+  }
+};
+
+
+export const users = async (req, res) => {
+  try {
+    const users = await UserModal.find();
+
+    console.log ( users ) ;
+
+    res.status(200).json( users );
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };
